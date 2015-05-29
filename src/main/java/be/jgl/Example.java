@@ -24,7 +24,10 @@ class Example {
         Observable<Collection<Integer>> obsInts = Observable.just(ints);
 
         obsInts.subscribe(System.out::println);
-        obsInts.flatMap(c -> Observable.from(c)).map(i -> i + 1).subscribe(System.out::println);
+        obsInts.flatMap(c -> Observable.from(c))
+                .map(i -> i + 1)
+                .filter(i -> i > 0)
+                .subscribe(System.out::println);
     }
 
     private static Collection<Integer> getRandInts(int n) {
