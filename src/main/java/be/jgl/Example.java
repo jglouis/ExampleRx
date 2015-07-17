@@ -1,15 +1,13 @@
 package be.jgl;
 
 import rx.Observable;
-import rx.Subscriber;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
-import java.util.concurrent.Future;
 
 /**
- * Created by jgl on 29/05/2015.
+ * Created by jgl on 29/05/2015 for project ExampleRx for project ExampleRx for project ExampleRx.
  */
 class Example {
     public static void main(String[] args) {
@@ -24,7 +22,7 @@ class Example {
         Observable<Collection<Integer>> obsInts = Observable.just(ints);
 
         obsInts.subscribe(System.out::println);
-        obsInts.flatMap(c -> Observable.from(c))
+        obsInts.flatMap(Observable::from)
                 .map(i -> i + 1)
                 .filter(i -> i > 0)
                 .subscribe(System.out::println);
